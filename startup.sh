@@ -43,7 +43,7 @@ echo "#!/bin/sh -e \n/usr/local/bin/issue.sh \nexit 0" > /etc/rc.local
 chmod 755 /etc/rc.local
 
 # Starting Joix using file
-docker-compose -f $rootconfigfolder/seedbox.yml -p test up -d
+docker-compose -f $rootconfigfolder/seedbox.yml -p seedbox up -d
 
 # Create SMB Share:
 echo "[global]
