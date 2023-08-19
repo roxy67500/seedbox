@@ -52,7 +52,7 @@ services:
       - TZ=Europe/paris
     volumes:
       - /etc/seedbox/radarr:/config
-      - /opt/seedbox/media/Films:Films #optional
+      - /opt/seedbox/media/Films:/Films #optional
       - /opt/seedbox/downloads:/downloads #optional
     ports:
       - 7878:7878
@@ -66,7 +66,7 @@ services:
       - TZ=Europe/paris
     volumes:
       - /etc/seedbox/sonarr:/config
-      - /opt/seedbox/media/Series:Series #optional
+      - /opt/seedbox/media/Series:/Series #optional
       - /opt/seedbox/downloads:/downloads #optional
     ports:
       -  8989:8989
