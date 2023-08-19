@@ -52,13 +52,13 @@ services:
       - TZ=Europe/paris
     volumes:
       - /etc/seedbox/radarr:/config
-      - /opt/seedbox/media/Films:/Films #optional
+      - /opt/seedbox/media/Films:Films #optional
       - /opt/seedbox/downloads:/downloads #optional
     ports:
       - 7878:7878
     restart: unless-stopped
   sonarr:
-    image: linuxserver/sonarr
+    image: linuxserver/sonarr:develop
     container_name: sonarr
     environment:
       - PUID=1000
@@ -66,7 +66,7 @@ services:
       - TZ=Europe/paris
     volumes:
       - /etc/seedbox/sonarr:/config
-      - /opt/seedbox/media/Series:/Series #optional
+      - /opt/seedbox/media/Series:Series #optional
       - /opt/seedbox/downloads:/downloads #optional
     ports:
       -  8989:8989
@@ -82,4 +82,17 @@ services:
       - /etc/seedbox/prowlarr:/config
     ports:
       - 9696:9696
+    restart: unless-stopped
+  ombi:
+    image: lscr.io/linuxserver/ombi:latest
+    container_name: ombi
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/paris
+      - BASE_URL=/ombi #optional
+    volumes:
+      - /etc/seedbox/ombi:/config
+    ports:
+      - 3579:3579
     restart: unless-stopped
